@@ -1,19 +1,17 @@
-FROM node:latest
+# Use the official ubuntu image
+FROM ubuntu:latest
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
-    && rm -rf /var/lib/apt/lists/*
+# Install nodejs and npm
+RUN apt-get update && apt-get install -y nodejs npm
 
-# Install Node.js packages
+# Install required npm packages
 RUN npm i net http2 tls cluster url crypto fs axios cheerio gradient-string node-telegram-bot-api shell-quote child_process eris
 
-# Copy your index.js file into the Docker image
-COPY index.js /app/
+# Copy the index.js file into the container (assuming it's in the same directory as the Dockerfile)
+COPY index.js /app/index.js
 
 # Set the working directory
 WORKDIR /app
 
-# Command to run the application
+# Run the index.js file
 CMD ["node", "index.js"]
