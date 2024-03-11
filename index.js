@@ -3,7 +3,7 @@ const keep_alive = require('./keep_alive.js')
 const TelegramBot = require('node-telegram-bot-api');
 const { exec } = require('child_process');
 
-const token = '6741174061:AAE3TTpahuRd3WOivtykkfVt9O0ynzxeVzY';
+const token = '6741174061:AAGxV6dqn-UL1JfnpmTipwWA7fo-z6clJt8';
 const bot = new TelegramBot(token, { polling: true });
 
 function isValidURL(url) {
